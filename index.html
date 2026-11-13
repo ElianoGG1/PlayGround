@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#101021">
 <link rel="icon" href="data:,">
-<title>Coin Bonce — Infinite Arcade</title>
+<title>Coin Bounce — Infinite Arcade</title>
 <style>
 :root{color-scheme:dark;--bg:#0e0e1e;--panel:#17172c;--panel2:#1d1d35;--line:#30304d;--muted:#9898b4;--gold:#ffcf61;--pink:#ff63b1;--cyan:#69e8df;--white:#f7f5ff}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -20%,#29234b 0,transparent 55%),var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
@@ -17,23 +17,23 @@ button{font:inherit;color:inherit;cursor:pointer} .app{max-width:1220px;margin:a
 <body>
 <div class="app">
   <header class="topbar">
-    <div class="brand"><div class="brand-icon">¢</div><div><h1>COIN BONCE</h1><small>INFINITE ARCADE • DROP &amp; ROLL</small></div></div>
+    <div class="brand"><div class="brand-icon">¢</div><div><h1>COIN BOUNCE</h1><small>INFINITE ARCADE • DROP &amp; ROLL</small></div></div>
     <div class="top-actions"><div class="infinite-pill"><b>∞</b> UNLIMITED CREDITS</div><button class="sound-btn" id="soundBtn" aria-label="Toggle sound" title="Toggle sound">♫</button></div>
   </header>
   <main class="main">
     <section class="game-card">
-      <div class="game-head"><span class="eyebrow">BONCE BOARD <span style="color:#686783">/</span> 01</span><span class="stage-badge">✦ PRIZE DROP</span></div>
-      <div class="canvas-wrap"><canvas id="board" width="520" height="625" aria-label="Coin bonce game board"></canvas><div class="aim-hint">TAP BOARD TO AIM <b>·</b> THEN BONCE</div></div>
+      <div class="game-head"><span class="eyebrow">BOUNCE BOARD <span style="color:#686783">/</span> 01</span><span class="stage-badge">✦ PRIZE DROP</span></div>
+      <div class="canvas-wrap"><canvas id="board" width="520" height="625" aria-label="Coin bounce game board"></canvas><div class="aim-hint">TAP BOARD TO AIM <b>·</b> THEN BOUNCE</div></div>
       <div class="below-board"><label class="aim-control">AIM <input id="aim" type="range" min="48" max="472" value="260"><span class="aim-value" id="aimValue">50%</span></label><button class="launch" id="launch">DROP A COIN&nbsp; ↘</button></div>
     </section>
     <aside class="side">
       <section class="side-card balance"><div class="balance-label">YOUR WALLET</div><div class="balance-value">∞ CREDITS</div><div class="balance-sub">The fun never runs out.</div></section>
-      <section class="side-card"><h2>SESSION STATS</h2><div class="stat-grid"><div class="stat"><div class="stat-label">COINS BONCED</div><div class="stat-value" id="drops">0</div></div><div class="stat"><div class="stat-label">BEST PRIZE</div><div class="stat-value gold" id="best">—</div></div><div class="stat"><div class="stat-label">LAST MULTIPLIER</div><div class="stat-value" id="lastMult">—</div></div><div class="stat"><div class="stat-label">TOTAL WON</div><div class="stat-value gold" id="total">0</div></div></div><div class="last-result"><span>LAST PAYOUT</span><strong id="payout">—</strong></div></section>
-      <section class="side-card controls-card"><h2>COIN VALUE</h2><div class="wager-row"><div class="wager-value"><span id="bet">100</span> <small>CR</small></div><div class="stepper"><button id="minus" aria-label="Decrease coin value">−</button><button id="plus" aria-label="Increase coin value">+</button></div></div><div class="chips"><button class="chip active" data-bet="100">100</button><button class="chip" data-bet="500">500</button><button class="chip" data-bet="1000">1K</button><button class="chip" data-bet="5000">5K</button></div><button class="auto-btn" id="auto">▶ &nbsp; AUTO BONCE: OFF</button></section>
+      <section class="side-card"><h2>SESSION STATS</h2><div class="stat-grid"><div class="stat"><div class="stat-label">COINS BOUNCED</div><div class="stat-value" id="drops">0</div></div><div class="stat"><div class="stat-label">BEST PRIZE</div><div class="stat-value gold" id="best">—</div></div><div class="stat"><div class="stat-label">LAST MULTIPLIER</div><div class="stat-value" id="lastMult">—</div></div><div class="stat"><div class="stat-label">TOTAL WON</div><div class="stat-value gold" id="total">0</div></div></div><div class="last-result"><span>LAST PAYOUT</span><strong id="payout">—</strong></div></section>
+      <section class="side-card controls-card"><h2>COIN VALUE</h2><div class="wager-row"><div class="wager-value"><span id="bet">100</span> <small>CR</small></div><div class="stepper"><button id="minus" aria-label="Decrease coin value">−</button><button id="plus" aria-label="Increase coin value">+</button></div></div><div class="chips"><button class="chip active" data-bet="100">100</button><button class="chip" data-bet="500">500</button><button class="chip" data-bet="1000">1K</button><button class="chip" data-bet="5000">5K</button></div><button class="auto-btn" id="auto">▶ &nbsp; AUTO BOUNCE: OFF</button></section>
       <section class="side-card how-card"><h2>HOW TO PLAY</h2><div class="howto"><b>Pick a lane</b> on the board or use the aim slider. Drop a coin and watch it ricochet through the pegs. Land a prize slot to win your coin value × the multiplier. <b>Credits are infinite</b>—play as much as you like!</div></section>
     </aside>
   </main>
-  <footer class="footer"><span><i class="live-dot"></i>ARCADE READY</span><span>NO LIMITS. JUST BONCES.</span></footer>
+  <footer class="footer"><span><i class="live-dot"></i>ARCADE READY</span><span>NO LIMITS. JUST BOUNCES.</span></footer>
 </div>
 <div class="toast" id="toast"></div>
 <script>
@@ -50,7 +50,7 @@ function beep(freq=520,dur=.08){if(!sound)return;try{const ac=beep.ac||(beep.ac=
 function launch(){if(coins.length>14){showToast('Too many coins in play — one sec!');return}const x=+aim.value;coins.push({x,y:62,vx:(Math.random()-.5)*38,vy:40,r:10,spin:Math.random()*6.28,bet,age:0,trail:[]});drops++;$('drops').textContent=drops;beep(680,.12);$('launch').disabled=true;setTimeout(()=>$('launch').disabled=false,210)}
 function setBet(v){bet=Math.max(10,Math.min(100000,Math.round(v)));$('bet').textContent=format(bet);document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',+c.dataset.bet===bet))}
 $('launch').addEventListener('click',launch);$('minus').onclick=()=>setBet(bet/2);$('plus').onclick=()=>setBet(bet*2);document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>setBet(+c.dataset.bet));
-$('auto').onclick=()=>{if(autoTimer){clearInterval(autoTimer);autoTimer=null;$('auto').classList.remove('active');$('auto').textContent='▶  AUTO BONCE: OFF'}else{autoTimer=setInterval(launch,520);$('auto').classList.add('active');$('auto').textContent='■  AUTO BONCE: ON';launch()}};
+$('auto').onclick=()=>{if(autoTimer){clearInterval(autoTimer);autoTimer=null;$('auto').classList.remove('active');$('auto').textContent='▶  AUTO BOUNCE: OFF'}else{autoTimer=setInterval(launch,520);$('auto').classList.add('active');$('auto').textContent='■  AUTO BOUNCE: ON';launch()}};
 $('soundBtn').onclick=()=>{sound=!sound;$('soundBtn').textContent=sound?'♫':'♪';$('soundBtn').style.color=sound?'#d4d2ec':'#77758f';showToast(sound?'Sound on':'Sound off')};
 aim.oninput=()=>setAim(+aim.value);
 canvas.addEventListener('pointerdown',e=>{const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)/rect.width*W;if(x>=48&&x<=472)setAim(x)});
