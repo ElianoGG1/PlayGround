@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101b2c" />
+  <link rel="icon" href="data:," />
+  <title>Hill Climb Unlimited</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Hill Climb Unlimited game"></canvas>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Hill Climb Unlimited home"><span class="brand-mark">H</span><span>HILL CLIMB <b>UNLIMITED</b></span></a>
+      <div class="top-stats"><span class="coin-pill"><i>◆</i><b>∞</b></span><button class="icon-button" id="soundBtn" aria-label="Toggle sound">♫</button><button class="icon-button" id="garageBtn" aria-label="Open garage">⚙</button></div>
+    </header>
+    <section class="hud" aria-label="Race status">
+      <div class="race-card"><div class="label">DISTANCE</div><div class="distance"><strong id="distance">0</strong><small>m</small></div><div class="best-line">BEST <span id="best">0 m</span></div></div>
+      <div class="fuel-card"><div class="fuel-title"><span>FUEL</span><span id="fuelText">100%</span></div><div class="fuel-track"><i id="fuelBar"></i></div></div>
+      <div class="air-badge" id="airBadge"><span>✦</span><b>BIG AIR!</b><small id="airValue">+0</small></div>
+    </section>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <section class="overlay" id="startOverlay">
+      <div class="panel start-panel"><div class="eyebrow"><span></span> THE HILLS ARE YOURS <span></span></div><h1>GO <em>BEYOND.</em></h1><p>One ride. Endless hills. Every ride, upgrade &amp; coin is yours.</p><div class="start-meta"><span>🏁 <b>ENDLESS RUN</b></span><span>⚡ <b>MAXED OUT</b></span><span>♾ <b>UNLIMITED</b></span></div><button class="primary-btn" id="startBtn">START YOUR ENGINE <span>→</span></button><div class="control-hint">HOLD <kbd>→</kbd> TO ACCELERATE <i>·</i> <kbd>←</kbd> TO BRAKE <i>·</i> <kbd>↑</kbd><kbd>↓</kbd> LEAN</div></div>
+    </section>
+    <section class="overlay hidden" id="pauseOverlay"><div class="panel compact-panel"><div class="eyebrow">TAKE A BREATHER</div><h2>PAUSED</h2><p>Your ride will be right here.</p><button class="primary-btn" id="resumeBtn">BACK TO THE HILLS <span>→</span></button><button class="text-btn" id="restartBtn">RESTART RUN</button></div></section>
+    <section class="overlay hidden" id="crashOverlay"><div class="panel compact-panel"><div class="eyebrow">WHAT A RIDE!</div><h2 id="endTitle">RUN OVER</h2><p id="endMessage">The hills are calling you back.</p><div class="result-score"><strong id="finalDistance">0</strong><span>METERS</span></div><button class="primary-btn" id="againBtn">RIDE AGAIN <span>↻</span></button><button class="text-btn" id="endGarageBtn">VISIT GARAGE</button></div></section>
+    <section class="overlay hidden" id="garageOverlay"><div class="panel garage-panel"><button class="close-btn" id="closeGarage" aria-label="Close garage">×</button><div class="eyebrow">YOUR TOYS. YOUR RULES.</div><h2>THE <em>GARAGE</em></h2><p class="garage-copy">Everything unlocked. Everything maxed. Pick your ride.</p><div class="vehicle-list" id="vehicleList"></div><div class="garage-upgrades"><div class="upgrade-heading"><span>MAXED OUT BUILD</span><b>LVL ∞</b></div><div class="upgrade-row"><span>⚙ Engine</span><div class="upgrade-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><b>MAX</b></div><div class="upgrade-row"><span>◉ Suspension</span><div class="upgrade-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><b>MAX</b></div><div class="upgrade-row"><span>↗ Grip</span><div class="upgrade-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><b>MAX</b></div></div><button class="primary-btn" id="garagePlay">LET'S RIDE <span>→</span></button></div></section>
+    <footer class="bottom-ui"><div class="speed-wrap"><div class="speedometer"><div class="speed-inner"><strong id="speed">0</strong><small>KM/H</small></div><div class="speed-needle" id="needle"></div></div></div><div class="touch-controls"><button class="control-btn brake" id="brakeBtn"><span>◀</span><small>BRAKE</small></button><button class="control-btn gas" id="gasBtn"><span>▶</span><small>GAS</small></button></div><div class="bottom-note"><span>NO LIMITS</span><span>·</span><span>NO RULES</span><span>·</span><span>JUST RIDE</span></div></footer>
+    <button class="pause-button" id="pauseBtn" aria-label="Pause game">Ⅱ</button>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
